@@ -1,10 +1,10 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import * as pdfjsLib from "pdfjs-dist";
+import pdfjsWorker from "pdfjs-dist/build/pdf.worker.min.mjs?url";
 import { PDFDocument, rgb, StandardFonts } from "pdf-lib";
 
-// PDF.js worker — use CDN for reliable Vite compatibility
-pdfjsLib.GlobalWorkerOptions.workerSrc =
-  "https://cdn.jsdelivr.net/npm/pdfjs-dist@4.4.168/build/pdf.worker.min.mjs";
+// PDF.js worker — use Vite ?url import for bundled worker
+pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
 /* ── Constants ──────────────────────────────────────── */
 
